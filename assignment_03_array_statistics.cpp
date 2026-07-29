@@ -41,4 +41,62 @@
 
 #include <iostream>
 using namespace std;
+int calculateSum(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
 
+double calculateAverage(int arr[], int size) {
+    return (double)calculateSum(arr, size) / size;
+}
+
+int calculateMax(int arr[], int size) {
+    int maxVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
+
+int calculateMin(int arr[], int size) {
+    int minVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+        }
+    }
+    return minVal;
+}
+
+int main() {
+    int n;
+
+    cout << "How many numbers? ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Error: Number must be greater than 0." << endl;
+        return 0;
+    }
+
+    int arr[n];
+
+    for (int i = 0; i < n; i++) {
+        cout << "Enter number " << (i + 1) << ": ";
+        cin >> arr[i];
+    }
+
+    cout << endl;
+    cout << "Results:" << endl;
+    cout << "Sum:     " << calculateSum(arr, n) << endl;
+    cout << "Average: " << calculateAverage(arr, n) << endl;
+    cout << "Maximum: " << calculateMax(arr, n) << endl;
+    cout << "Minimum: " << calculateMin(arr, n) << endl;
+
+    return 0;
+}
