@@ -56,4 +56,37 @@
 
 #include <iostream>
 using namespace std;
+void printSingleTable(int num) {
+    cout << "Multiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << "  x  " << i << "  =  " << (num * i) << endl;
+    }
+}
 
+void printMultipleTables(int n) {
+    for (int i = 1; i <= n; i++) {
+        printSingleTable(i);
+        if (i < n) {
+            cout << "---------------------------" << endl;
+        }
+    }
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (num <= 0) {
+        cout << "Error: Number must be greater than 0." << endl;
+        return 0;
+    }
+
+    cout << endl << "--- PART A ---" << endl;
+    printSingleTable(num);
+
+    cout << endl << "--- PART B ---" << endl;
+    printMultipleTables(num);
+
+    return 0;
+}
